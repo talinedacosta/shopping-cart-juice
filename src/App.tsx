@@ -1,12 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter } from 'react-router-dom';
+import { Header } from './components/Header';
+import { Router } from './routes';
 import GlobalStyles from './styles/global';
+import { Container } from './styles/App';
 
 function App() {
-  return (
-    <div className="App">
-      <GlobalStyles />      
-    </div>
+  return (  
+    <BrowserRouter>
+      <GlobalStyles />     
+      <Container>
+        <Header /> 
+        <Router />        
+      </Container>
+    </BrowserRouter>
   );
 }
 
