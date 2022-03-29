@@ -1,0 +1,54 @@
+{
+  "stock": [
+    {
+      "id": 1,
+      "amount": 10
+    },
+    {
+      "id": 2,
+      "amount": 8
+    },
+    {
+      "id": 3,
+      "amount": 5
+    },
+    {
+      "id": 4,
+      "amount": 3
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Suco de laranja",
+      "description": "Suco feito com laranjas fresquinhas.",
+      "quantity": "350 ml",
+      "price": 3.5,
+      "image": "https://images.unsplash.com/photo-1619241638225-14d56e47ae64?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    },
+    {
+      "id": 2,
+      "title": "Água de coco com hortlã",
+      "description": "Água de coco com hortelã com gosto de férias.",
+      "quantity": "410 ml",
+      "price": 5.5,
+      "image": "https://images.unsplash.com/photo-1619846227717-205b9dccac17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    },
+    {
+      "id": 3,
+      "title": "Suco de melancia com limão",
+      "description": "Suco de melancia com limão bem refrescante.",
+      "quantity": "350 ml",
+      "price": 4.5,
+      "image": "https://images.unsplash.com/photo-1621659911279-b08ce9ff421f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    },
+    {
+      "id": 1,
+      "title": "Suco de laranja, limão e água de coco",
+      "description": "Suco da casa.",
+      "quantity": "350 ml",
+      "price": 5,
+      "image": "https://images.unsplash.com/photo-1622267224551-8063a2d4fbb4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    }
+  ]
+}
