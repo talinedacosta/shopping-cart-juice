@@ -1,23 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { GiFruitBowl, GiShoppingCart } from 'react-icons/gi';
 
+import { FiShoppingCart } from 'react-icons/fi';
+import { NavLink } from 'react-router-dom';
 import { Container, Logo, Cart } from './styles';
 
-export const Header = () => {
-  return ( 
+export const Header = (): JSX.Element => {
+  return (
     <Container>
-      <Link to="/">
-        <Logo><span>Heart Healthy</span> <GiFruitBowl size={32} /></Logo>
-      </Link>
+      <nav>
+        <Logo to="/"><h1>myjuice</h1></Logo>
 
-      <Link to="/cart"> 
-        <Cart className='btn-orange'>
-          <GiShoppingCart size={32} />
-          <strong>Meu carrinho</strong>
-          <span>0 item</span>
-        </Cart>
-      </Link>
+        <div className="navegation">
+          <NavLink className={({isActive}) => (isActive ?' active' : '') } to="/"><h3>Mercado</h3></NavLink>
+          /
+          <NavLink className={({isActive}) => (isActive ?' active' : '')} to="/cart"><h3>Carrinho</h3></NavLink>
+        </div>       
+
+        <Cart to="/cart" >
+          <button type="button">
+            <FiShoppingCart size={24}/>
+            <span>0 items</span>
+          </button>
+        </Cart>       
+      </nav>
     </Container>
-   );
+  )
 }
