@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { FiMinus, FiPlus, FiTrash2 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { useCart } from '../../hooks/useCart';
 import { Container, ProductsList, Product } from './styles';
 
 interface Product {
@@ -12,28 +13,17 @@ interface Product {
   quantity: string,
   price: number,
   image: string,
+  amount: number
 }
 
 export const Cart = (): JSX.Element => {
-  const [cart, setCart] = useState<Product[]>();
-
-  useEffect(() => {
-    async function loadCart() {
-      const storagedCart = localStorage.getItem("@myjuice:cart")
-
-      if (storagedCart) {
-        setCart(JSON.parse(storagedCart));
-      } 
-     }
-   
-     loadCart();
-  }, [])
+  const { cart } = useCart();
 
   return (
     <Container>
      <h2>Carrinho</h2>  
       <ProductsList>
-        {cart?.map(product => {
+        {cart.map(product => {
           return (
             <Product key={product.id}>
             <div className="header">
@@ -45,7 +35,7 @@ export const Cart = (): JSX.Element => {
             </div>
             <div className="body">
               <button type="button"><FiMinus size={16} /></button>
-              <span>1</span>
+              <span>{product.amount}</span>
               <button type="button"><FiPlus size={16} /></button>
             </div>
             <div className="footer">

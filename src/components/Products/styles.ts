@@ -17,7 +17,15 @@ export const Product = styled.div`
   .body {
     
     h3 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       font-size: 1.3rem;
+
+      small {
+        font-size: 50%;
+        color: #707070;
+      }
     }
   }
 

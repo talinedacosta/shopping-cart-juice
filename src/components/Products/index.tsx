@@ -5,20 +5,27 @@ import { formatPrice } from '../../util/format';
 
 import { FiShoppingCart } from 'react-icons/fi';
 import { Container, ProductsList, Product } from './styles';
+import { useCart } from '../../hooks/useCart';
 
 interface Product {
   id: number,
   title: string,
   description: string,
   ingredients: Array<string> ,
-  quantity: string,
+  weight: string,
   price: number,
   image: string,
+  amount: number,
   priceFormatted: string
+}
+
+interface CartProductsAmount {
+  [key: number]: number;
 }
 
 export const Products = (): JSX.Element => {
   const [products, setProducts] = useState<Product[]>();
+  const { cart, addProduct } = useCart();
 
   useEffect(() => {
     async function loadProducts() {
@@ -35,6 +42,17 @@ export const Products = (): JSX.Element => {
      loadProducts();
   }, [])
 
+  const handleAddProduct = (productId: number) => {
+    addProduct(productId);
+  }
+
+  const cartProductsAmount = cart.reduce((accAmount, product) => {
+    const newAccAmount = { ...accAmount };
+    newAccAmount[product.id] = product.amount;
+
+   return newAccAmount;
+  }, {} as CartProductsAmount)
+
   return (
     <Container>
       <ProductsList>
@@ -45,12 +63,15 @@ export const Products = (): JSX.Element => {
                 <img src={product.image} alt={product.title} />
               </div>
               <div className="body">
-                <h3>{product.title}</h3>
+                <h3>{product.title}  <small>{product.weight}</small></h3>               
                 <span>{product.description}</span>
+               
               </div>
               <div className="footer">
-                <h3>{product.priceFormatted}</h3>
-                <button type="button"><FiShoppingCart size={16} /> <span>0</span></button>
+                <h3>{product.priceFormatted}</h3>  
+                <button type="button" onClick={() => handleAddProduct(product.id)}><FiShoppingCart size={16} /> 
+                <span>{cartProductsAmount[product.id] || 0}</span>
+                </button>
               </div>
             </Product>
           )
