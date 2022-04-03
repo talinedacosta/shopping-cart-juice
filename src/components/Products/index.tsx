@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 
+import { useCart } from '../../hooks/useCart';
 import { formatPrice } from '../../util/format';
 
 import { FiShoppingCart } from 'react-icons/fi';
 import { Container, ProductsList, Product } from './styles';
-import { useCart } from '../../hooks/useCart';
+
 
 interface Product {
   id: number,

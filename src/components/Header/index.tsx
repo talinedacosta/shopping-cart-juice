@@ -2,9 +2,13 @@ import React from 'react';
 
 import { FiShoppingCart } from 'react-icons/fi';
 import { NavLink } from 'react-router-dom';
+import { useCart } from '../../hooks/useCart';
 import { Container, Logo, Cart } from './styles';
 
 export const Header = (): JSX.Element => {
+  const { cart } = useCart();
+  const totalItems = cart.length;
+
   return (
     <Container>
       <nav>
@@ -19,7 +23,7 @@ export const Header = (): JSX.Element => {
         <Cart to="/cart" >
           <button type="button">
             <FiShoppingCart size={24}/>
-            <span>0 items</span>
+            <span>{totalItems <= 1 ? `${totalItems} item` : `${totalItems} itens` }</span>
           </button>
         </Cart>       
       </nav>

@@ -9,34 +9,67 @@ export const Container = styled.main`
   }
 `;
 
-export const ProductsList = styled.section`
+export const ProductsList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3rem;
-`
+
+  .emptyCart {
+    align-self: center;
+  }
+`;
+
 export const Product = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, auto);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   padding-bottom: 1rem;
   border-bottom: 1px solid #0e0e0e;
   gap: 1rem;
 
-  .header {
+  .product {
+    flex: 1 0;
     max-height: 100px;
     display: flex;
     gap: 1rem;
 
     img {
-      width: auto;
-      height: 100%;
+      width: 80px;
     }
   }
 
-  .body, .footer {
+  .amount {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
     justify-content: flex-end;
-    gap: 1rem;
-    text-align: right;
+    gap: 0.8rem;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      text-align: right;
+    }
   }
+
+  button {
+    pointer-events: all;
+
+    &.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+
+`;
+
+export const Total = styled.section`
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 `;

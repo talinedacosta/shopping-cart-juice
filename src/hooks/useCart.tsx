@@ -98,7 +98,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
       const productIndex = storagedCart.findIndex(product => product.id === productId);
                  
       if(productIndex >= 0) {
-        storagedCart.splice(1, productIndex);
+        storagedCart.splice(productIndex, 1);
         setCart(storagedCart);
       } else {
         toast.error('Erro na remoção do produto');
